@@ -8,17 +8,31 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
-    <h1><%= yield(:title) %></h1>
+  <body class="<%= controller_name %> <%= action_name %>">
     <%= render "partials/nav" %>
+    <section class="hero">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            <h1 class="title"><%= yield(:title) %></h1>
+          </h1>
+        </div>
+      </div>
+    </section>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+
   </body>
 
-  <footer>
-    <%= render "partials/nav" %>
-
-    &copy Bloggies 2017
+  <footer class="footer">
+    <div class="container">
+      <div class="content has-text-centered">
+        <p>
+          &copy Bloggies 2017
+        </p>
+      </div>
+    </div>
   </footer>
 </html>
