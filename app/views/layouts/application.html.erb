@@ -10,6 +10,7 @@
 
   <body class="<%= controller_name %> <%= action_name %>">
     <%= render "partials/nav" %>
+    <div class="container">
     <section class="hero">
       <div class="hero-body">
         <div class="container">
@@ -23,8 +24,10 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
+  </div>
 
   </body>
+
 
   <footer class="footer">
     <div class="container">
