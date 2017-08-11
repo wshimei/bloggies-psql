@@ -1,4 +1,4 @@
-<h1>All Posts by <%= current_user.name %></h1>
+<% provide(:title, "Posts by #{current_user.name}") %>
 
 <% @news_data['articles'].each do |article| %>
   <h3><%= article['title'] %></h3>

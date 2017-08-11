@@ -1,4 +1,4 @@
-<h1>Edit Post <%= @post.title %></h1>
+<% provide(:title, "Edit Post #{@post.title}") %>
 
 <%= form_for @post do |f| %>
   <%= f.label :Title %>
