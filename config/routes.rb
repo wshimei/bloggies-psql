@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'static#home'
+  get '/about', to: 'static#about', as: 'about'
 
   devise_for :users, path: '', path_names: { sign_in: 'login', sign_out: 'logout', sign_up: 'register'}
 
