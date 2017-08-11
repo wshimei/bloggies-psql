@@ -1,0 +1,34 @@
+<h1>All Posts by <%= current_user.name %></h1>
+
+<% @news_data['articles'].each do |article| %>
+  <h3><%= article['title'] %></h3>
+  <%= image_tag article['urlToImage'], width: 200 %>
+  <%= article['description'] %>
+  <%= link_to 'Read more..', article['url'] %>
+  <br>
+<% end %>
+
+<h2>Create new post</h2>
+<%= form_for @new_post do |f| %>
+<%= f.label :title %>
+<%= f.text_field :title %>
+<br>
+<%= f.label :content %>
+<%= f.text_area :content %>
+<br>
+<%= f.hidden_field :user_id, :value => current_user.id %>
+<br>
+<%= f.submit %>
+<% end %>
+
+<% @all_post.each do |post| %>
+  <% if post.id %>
+    <h3><%= post.title %></h3>
+    <%= post.content %>
+
+    <br>
+    <%= link_to "View", post_path(post) %>
+    <%= link_to "Edit", edit_post_path(post) %>
+    <%= link_to "Delete", post_path(post), method: :delete %>
+  <% end %>
+<% end %>

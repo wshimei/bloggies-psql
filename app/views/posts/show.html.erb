@@ -1,0 +1,5 @@
+<h2><%= @post.title %></h2><small>Written by: <%= @post.user.name %></small>
+
+<p><%= @post.content %></p>
+
+<%= link_to "Edit", edit_post_path %>
