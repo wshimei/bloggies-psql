@@ -7,9 +7,20 @@ $(document).on('turbolinks:load', function () {
     alert('loaded static page change')
   })
 
-  $('.posts').ready(function () {
+  $('.posts.show').ready(function () {
   // check if we're at posts pages
   // load on static posts views
-    alert('loaded post page change')
+    $.get('/tags', function (data) {
+      data.forEach(function (d) {
+        var newList = $('<li>').text(d.name)
+        $('#tags').append(newList)
+      })
+    })
+  })
+
+  $('.posts.edit').ready(function () {
+    $.get('/posts/:id/edit', function (post) {
+      console.log(post)
+    })
   })
 })
